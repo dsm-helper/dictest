@@ -3,6 +3,8 @@
 import random
 import json
 
+__author__ = "dsm_helper"
+
 select = input("Input words file name >> ")
 
 with open(f'./words/{select}.json', 'r', encoding="UTF8") as f:
