@@ -1,8 +1,8 @@
 import sys
 sys.path.insert(0, sys.path[0]+'/../src')
 
-import main
 def test_get_words_by_info():
+    import main
     import json
 
     words = main.get_words_by_info("2017", "2nd", "01")
