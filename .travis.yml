@@ -10,4 +10,4 @@ install:
   - pip install -r requirements.txt
 
 script:
-  - cd tests && pytests
+  - cd tests && pytest
