@@ -2,6 +2,7 @@
 
 import random
 import json
+import config
 
 __author__ = "dsm_helper"
 
@@ -27,25 +28,25 @@ while True:
     question = input("I think.. >> ")
 
     if question == temp[0]:
-        print(f"정답! {len(words)-1}문제 남았습니다!")
+        print(config.CORRECT_MESSAGE.format(count=len(words) - 1))
         check = True
         count = 0
         words.pop(temp[0])
     elif question != temp[0]:
-        print("다시 생각해~")
+        print(config.TRY_AGAIN_MESSAGE)
         count += 1
 
     if count == 5:
-        print(f"힌트 드릴게요.. 첫 번째 글자는 {temp[0][0]}입니다.")
+        print(config.FIRST_CHARACTER_HINT.format(answer=temp[0]))
     if count == 7:
-        print(f"아직도 못 맞추셨어요? 단어의 길이는 {len(temp[0])}입니다.")
+        print(config.LENGTH_HINT.format(answer=temp[0]))
     if count == 10:
-        print(f"안타깝네요.. 정답은 {temp[0]} 였습니다.")
+        print(config.FAILED_MESSAGE.format(answer=temp[0]))
         words.pop(temp[0])
         check = True
 
     if question == "exit":
-        print("Bye~~")
+        print(config.EXIT_MESSAGE)
         exit(1)
 
-print("끝!!")
+print(config.END_MESSAGE)
