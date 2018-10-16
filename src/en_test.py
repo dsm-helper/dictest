@@ -21,28 +21,28 @@ while True:
         break
 
     if check:
-        temp = random.choice(list(words.items()))
+        answer, meaning = random.choice(list(words.items()))
         check = False
-        print(temp[1])
+        print(meaning)
 
     question = input("I think.. >> ")
 
-    if question == temp[0]:
-        print(config.CORRECT_MESSAGE.format(count=len(words) - 1))
+    if question == answer:
         check = True
         count = 0
-        words.pop(temp[0])
-    elif question != temp[0]:
+        words.pop(answer)
+        print(config.CORRECT_MESSAGE.format(count=len(words)))
+    elif question != answer:
         print(config.TRY_AGAIN_MESSAGE)
         count += 1
 
     if count == 5:
-        print(config.FIRST_CHARACTER_HINT.format(answer=temp[0]))
+        print(config.FIRST_CHARACTER_HINT.format(answer=answer))
     if count == 7:
-        print(config.LENGTH_HINT.format(answer=temp[0]))
+        print(config.LENGTH_HINT.format(answer=answer))
     if count == 10:
-        print(config.FAILED_MESSAGE.format(answer=temp[0]))
-        words.pop(temp[0])
+        print(config.FAILED_MESSAGE.format(answer=answer))
+        words.pop(answer)
         check = True
 
     if question == "exit":
