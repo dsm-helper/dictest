@@ -6,15 +6,20 @@ import config
 
 __author__ = "dsm_helper"
 
-enter_year = input("입학년도를 입력해주세요 ex) 2017 >> ")
-semester = input("학기를 입력해주세요 ex) 1st >> ")
-file_name = input("파일명을 입력해주세요 ex) 01 >> ")
+def get_quiz_data_from_input():
+    return input("입학년도를 입력해주세요 ex) 2017 >> "), input("학기를 입력해주세요 ex) 1st >> "), input("파일명을 입력해주세요 ex) 01 >> ")
+
+enter_year, semester, file_name = get_quiz_data_from_input()
 
 with open(f'../data/dsm{enter_year}/{semester}/{file_name}.json', 'r', encoding="UTF8") as f:
     words = json.load(f)
 
 check = True
 count = 0
+
+def finish_quiz():
+    print(config.EXIT_MESSAGE)
+    exit(1)
 
 while True:
     if len(words) == 0:
@@ -46,7 +51,6 @@ while True:
         check = True
 
     if question == "exit":
-        print(config.EXIT_MESSAGE)
-        exit(1)
+        finish_quiz()
 
 print(config.END_MESSAGE)
