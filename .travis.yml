@@ -9,3 +9,10 @@ install:
 
 script:
   - cd tests && pytest
+
+notifications:
+  email:
+    recipients:
+      - dev.moreal@gmail.com
+    on_success: change # default: change
+    on_failure: change # default: always
