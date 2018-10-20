@@ -6,7 +6,7 @@ Follow this rule to add English tests to 'data' directory in json format.
 
 ### Format
 
-```
+```tree
 ▼ data/
   ▼ dsm{years}/
     ▼ {semester}/
@@ -16,5 +16,12 @@ Follow this rule to add English tests to 'data' directory in json format.
 
 ### Example
 
-2018-01-01.json  
-2018-01-02.json
+```tree
+▼ data/
+  ▼ dsm2017/
+    ▼ 2nd/
+      01.json
+      02.json
+      03.json
+      04.json
+```
