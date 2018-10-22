@@ -1,11 +1,27 @@
 # Naming Rule
 
-## data/words/*.json
-Follow this rule to add English tests to data/words in json format.
+## data/ words as .json
+
+Follow this rule to add English tests to 'data' directory in json format.
 
 ### Format
-{years}-{semester}-{sequence_no}.json
+
+```tree
+▼ data/
+  ▼ dsm{years}/
+    ▼ {semester}/
+      {sequence_no}.json
+      ...
+```
 
 ### Example
-2018-01-01.json  
-2018-01-02.json
+
+```tree
+▼ data/
+  ▼ dsm2017/
+    ▼ 2nd/
+      01.json
+      02.json
+      03.json
+      04.json
+```
