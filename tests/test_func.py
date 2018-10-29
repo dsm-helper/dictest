@@ -1,5 +1,5 @@
 import sys
-sys.path.insert(0, sys.path[0]+'/../src')
+sys.path.insert(0, sys.path[0]+'/../dictest')
 
 def test_get_words_by_info():
     import main
