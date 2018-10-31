@@ -9,11 +9,17 @@ __author__ = "dsm_helper"
 
 def get_quiz_data_from_input():
     return input("입학년도를 입력해주세요 ex) 2017 >> "), input("학기를 입력해주세요 ex) 1st >> "), input("파일명을 입력해주세요 ex) 01 >> ")
-    
+
+
 def get_words_by_info(enter_year, semester, file_name):
-    with open(f'../data/dsm{enter_year}/{semester}/{file_name}.json', 'r', encoding="UTF8") as f:
-        words = json.load(f)
-    return words
+    try:
+        with open(f'../data/dsm{enter_year}/{semester}/{file_name}.json', 'r', encoding="UTF8") as f:
+            words = json.load(f)
+        return words
+    except Exception as e:
+        print("잘못된 입력입니다. 다시 확인해주세요.")
+        print(e)
+        exit(1)
 
 if __name__ == "__main__":
 
@@ -21,6 +27,7 @@ if __name__ == "__main__":
 
     check = True
     count = 0
+    words = get_words_by_info(enter_year, semester, file_name)
 
     def finish_quiz():
         print(config.EXIT_MESSAGE)
