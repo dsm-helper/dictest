@@ -3,4 +3,4 @@
 engines:
   pylint:
     enabled: true
-    python-version: 3
+    python-version: 3.6
